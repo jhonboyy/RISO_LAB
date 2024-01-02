@@ -1,0 +1,269 @@
+/* || GENERAL STYLE */
+
+.cookies__boton{
+
+    color: black !important;
+    text-decoration: none;
+  }
+  
+  .cookies__boton:hover {
+    color: black !important;
+    text-decoration: underline;
+  }
+  
+  .cookies {
+  
+    position: fixed; 
+    top: 0;
+    margin-top: 50px; 
+    text-align: center; 
+    z-index: 10;
+  
+  }
+  
+  .split {
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+  }
+
+  .left {
+    left: 0;
+    font-size: 16px;
+    display: grid;
+    position: absolute;
+    height: calc(100vh - 100px);
+    top: 50px;
+    width: 50%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    z-index: 2;
+    border-right: 1px solid black;
+  }
+
+  .right {
+    right: 0;
+    padding: 0;
+    top: 50px;
+    width: 50vw;
+    font-size: 13px;
+    display: grid;
+    height: calc(100vh - 100px);
+    grid-template-rows: 400px 1fr;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  body {
+    font-family: favorit;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    overflow: hidden;
+  }
+  
+  .active {
+    text-decoration: underline !important;
+    pointer-events: none;
+  }
+  
+  li a,
+  li a:hover {
+    background-color: white !important;
+    text-decoration: none;
+    color: black !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    font-size: 21;
+    border: none;
+    z-index: 10;
+  }
+  
+  a {
+    color: blue !important;
+    cursor: pointer;
+    background-color: white;
+    height: auto;
+    width: 100%;
+  }
+  
+  a:hover {
+    color: blue !important;
+  }
+  
+  p {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    margin-bottom: 0 !important;
+  }
+  
+  ul {
+    list-style-type: none;
+    display: grid;
+    padding: 0;
+    gap: 1px;
+    background-color: transparent;
+    margin: 0;
+  }
+  
+  .text-right {
+    width: 100%;
+    height: 98%;
+    text-align: right;
+  }
+  
+  .text-bottom {
+    display: flex;
+    text-align: start;
+    align-items: end;
+  }
+  
+  .text-left {
+    width: 100%;
+    height: 98%;
+    text-align: left;
+  }
+  
+  div p {
+    padding: 1.5vh;
+  }
+  
+  
+  h1 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: "Favorit";
+    font-style: light;
+    src: url("../Fonts/ABCFavoritMono-Light.woff") format("woff");
+  }
+
+  body h1 {
+
+    border-bottom: 1px solid black;
+    z-index: 99;
+    background-color: white;
+  }
+
+  .menu {
+
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr;
+    grid-template-rows: 101px 101px 67px 67px 67px;
+    position: relative;
+    width: 50vw;
+    height: 401px;
+
+  }
+
+  .menu p{
+
+    text-align: center;
+    justify-items: center;
+    margin: 0;
+    padding: 2px;
+    height: max-content;
+    width: max-content;
+
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid black;
+  }
+
+  .menu ::after{
+
+    content: ''; 
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px; 
+    border-left: 1px solid black;
+    z-index: 1;
+
+  }
+
+  main canvas {
+
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+
+  main {
+    display: grid;
+    place-items: center;
+    
+  }
+
+  .download-section {
+    display: flex;
+    position: relative;
+    z-index: 3;
+    height: 50px;
+    grid-row-start: 3;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+.download-button {
+    height: max-content;
+    width: max-content;
+    margin: 0;
+    cursor: pointer;
+}
+
+.grid {
+  border-bottom: 0!important;
+}
+
+input {
+
+  box-sizing:border-box;
+  font-family: favorit;
+  font-size: 13px;
+  text-align: center;
+  box-shadow: 0;
+  border: 0;
+
+
+
+}
+
+input:focus {
+  outline: none;
+}
+
+
+
