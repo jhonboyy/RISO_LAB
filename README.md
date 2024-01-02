@@ -12,16 +12,6 @@ This software is provided free of charge, extending permission to individuals an
 - **UI Development:** The user interface is still in the process of being defined.
 - **Optimal Values:** Exercise caution in using values that may be excessively large.
 
-## Contribution Guidelines
-
-If you're interested in contributing to this project, please follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/new-feature`)
-3. Make your changes and commit (`git commit -am 'Add new feature'`)
-4. Push the branch (`git push origin feature/new-feature`)
-5. Open a Pull Request
-
 ## License
 
 This web project is governed by the [Anti-Capitalist License](LICENSE).
