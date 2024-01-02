@@ -20,5 +20,3 @@ This web project is governed by the [Anti-Capitalist License](LICENSE).
 
 - Name: Jhon Boy
 - Email: hello@jhonboy.com
-
-Thank you for your interest in Jhon Boy Riso Lab!
