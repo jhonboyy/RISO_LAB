@@ -161,7 +161,7 @@
   @font-face {
     font-family: "Favorit";
     font-style: light;
-    src: url("../fonts/ABCFavoritMono-Light.woff") format("woff");
+    src: url("../Fonts/ABCFavoritMono-Light.woff") format("woff");
   }
 
   body h1 {
@@ -178,7 +178,7 @@
     grid-template-rows: 101px 101px 67px 67px 67px;
     position: relative;
     width: 50vw;
-    height: 401px;
+    height: 402px;
 
   }
 
@@ -263,6 +263,16 @@ input {
 
 input:focus {
   outline: none;
+}
+
+input[type="file"] {
+  color: transparent;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 1%;
+  cursor: pointer;
 }
 
 

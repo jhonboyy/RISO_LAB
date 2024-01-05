@@ -29,51 +29,51 @@ function createColorDivsForButton(button) {
   hideColours();
 
   if (!colours) {
-    colours = document.createElement("div");
-    colours.classList.add("coloursdiv");
-    colours.style.cssText = `
-      position: absolute;
-      top: 0;
-      left: 121px;
-      width: calc(50vw - 120px);
-      height: 100px;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(20, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      gap: 1px;
-      background-color: black;
-    `;
+      colours = document.createElement("div");
+      colours.classList.add("coloursdiv");
+      colours.style.cssText = `
+    position: absolute;
+    top: 0;
+    left: 121px;
+    width: calc(50vw - 120px);
+    height: 100px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1px;
+    background-color: black;
+  `;
 
-    createColorDivs(colorColour, (selectedColor, colorName) => changeBgButton(button, selectedColor, colorName));
+      createColorDivs(colorColour, (selectedColor, colorName) => changeBgButton(button, selectedColor, colorName));
 
-    menu.appendChild(colours);
+      menu.appendChild(colours);
   }
 }
 
 
 function createColorDivs(color, changeBgButton) {
   for (let i = 0; i < 80; i++) {
-    const colorDiv = document.createElement("div");
-    colorDiv.classList.add("colour");
-    colorDiv.style.cssText = "cursor: pointer;";
+      const colorDiv = document.createElement("div");
+      colorDiv.classList.add("colour");
+      colorDiv.style.cssText = "cursor: pointer;";
 
-    const selectedColor = rgbArrayToString(color[i]);
-    colorDiv.style.backgroundColor = selectedColor;
+      const selectedColor = rgbArrayToString(color[i]);
+      colorDiv.style.backgroundColor = selectedColor;
 
-    colorDiv.addEventListener("mouseover", () => {
-      channelText.textContent = colorAlias[i];
-    });
+      colorDiv.addEventListener("mouseover", () => {
+          channelText.textContent = colorAlias[i];
+      });
 
-    colorDiv.addEventListener("mouseout", () => {
-      channelText.textContent = 'Channels';
-    });
+      colorDiv.addEventListener("mouseout", () => {
+          channelText.textContent = 'Channels';
+      });
 
-    colorDiv.addEventListener("click", () => {
-      changeBgButton(selectedColor, colorName[i]);
-    });
+      colorDiv.addEventListener("click", () => {
+          changeBgButton(selectedColor, colorName[i]);
+      });
 
-    colours.appendChild(colorDiv);
+      colours.appendChild(colorDiv);
   }
 }
 
@@ -82,14 +82,14 @@ function changeBgButton(button, selectedColor, colorName) {
   colourButtons[button].style.backgroundColor = selectedColor;
 
   if (button === "red") {
-    selectedRedColor = `"${colorName}"`;
-    red = new Riso(colorName);
+      selectedRedColor = `"${colorName}"`;
+      red = new Riso(colorName);
   } else if (button === "blue") {
-    selectedBlueColor = `"${colorName}"`;
-    blue = new Riso(colorName);
+      selectedBlueColor = `"${colorName}"`;
+      blue = new Riso(colorName);
   } else if (button === "green") {
-    selectedGreenColor = `"${colorName}"`;
-    green = new Riso(colorName);
+      selectedGreenColor = `"${colorName}"`;
+      green = new Riso(colorName);
   }
 
   adjustTextColor(colourButtons[button]);
@@ -136,65 +136,66 @@ function createPatternDiv(color) {
   hidePatterns();
 
   if (!patterns) {
-    patterns = document.createElement("div");
-    patterns.classList.add("patternsdiv");
-    patterns.style.cssText = `
-      position: absolute;
-      right: -1px;
-      top: 101px;
-      height: 100px;
-      width: calc(50vw - 120px);
-      z-index: 2;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      background-color: white;
-      place-items: center;
-    `;
+      patterns = document.createElement("div");
+      patterns.classList.add("patternsdiv");
+      patterns.style.cssText = `
+    position: absolute;
+    right: -1px;
+    top: 101px;
+    height: 100px;
+    width: calc(50vw - 120px);
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: white;
+    place-items: center;
+  `;
 
-    createPatternButtons(color);
+      createPatternButtons(color);
 
-    menu.appendChild(patterns);
+      menu.appendChild(patterns);
   }
 }
 
 function createPatternButtons(color) {
   elements.forEach((element) => {
-    const elementP = document.createElement("p");
-    elementP.textContent = element;
-    elementP.textContent = element.charAt(0).toUpperCase() + element.slice(1);
-    elementP.style.cssText = `
-      cursor: pointer;
-      display: grid;
-      margin: 0;
-      padding: 0;
-      height: max-content;
-      width: max-content;
-      text-decoration: none;
-      `;
+      const elementP = document.createElement("p");
+      elementP.textContent = element;
+      elementP.textContent = element.charAt(0).toUpperCase() + element.slice(1);
+      elementP.style.cssText = `
+    cursor: pointer;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    height: max-content;
+    width: max-content;
+    text-decoration: none;
+    `;
       elementP.addEventListener("mouseover", () => {
-        elementP.style.textDecoration = "underline";
+          elementP.style.textDecoration = "underline";
       });
-  
+
       elementP.addEventListener("mouseout", () => {
-        elementP.style.textDecoration = "none";
+          elementP.style.textDecoration = "none";
       });
 
-    elementP.addEventListener("click", () => {
-      if (color === "red") {    
-        selectedRedPattern = element;
-        patternButtons.red.textContent = element.charAt(0).toUpperCase() + element.slice(1);;}
-      else if (color === "blue") {    
-        selectedBluePattern = element;
-        patternButtons.blue.textContent = element.charAt(0).toUpperCase() + element.slice(1);;}
-      else if (color === "green") {    
-        selectedGreenPattern = element;
-        patternButtons.green.textContent = element.charAt(0).toUpperCase() + element.slice(1);;}
+      elementP.addEventListener("click", () => {
+          if (color === "red") {
+              selectedRedPattern = element;
+              patternButtons.red.textContent = element.charAt(0).toUpperCase() + element.slice(1);;
+          } else if (color === "blue") {
+              selectedBluePattern = element;
+              patternButtons.blue.textContent = element.charAt(0).toUpperCase() + element.slice(1);;
+          } else if (color === "green") {
+              selectedGreenPattern = element;
+              patternButtons.green.textContent = element.charAt(0).toUpperCase() + element.slice(1);;
+          }
 
-      draw();
-      hidePatterns(); // Ocultar los patrones después de hacer clic en un elemento
-    });
+          draw();
+          hidePatterns(); // Ocultar los patrones después de hacer clic en un elemento
+      });
 
-    patterns.appendChild(elementP);
+      patterns.appendChild(elementP);
   });
 }
 
@@ -202,14 +203,14 @@ let patterns = null;
 
 function hidePatterns() {
   if (menu.style.display !== 'none') {
-    Object.values(patternButtons).forEach((button) => {
-      button.style.display = "grid";
-    });
+      Object.values(patternButtons).forEach((button) => {
+          button.style.display = "grid";
+      });
 
-    if (patterns && patterns.parentNode) {
-      patterns.parentNode.removeChild(patterns);
-      patterns = null;
-    }
+      if (patterns && patterns.parentNode) {
+          patterns.parentNode.removeChild(patterns);
+          patterns = null;
+      }
   }
 }
 
@@ -222,7 +223,7 @@ document.addEventListener("click", (event) => {
   const isClickInsidePatterns = patterns && patterns.contains(event.target);
 
   if (!isClickInsideMenu && !isClickInsidePatterns && menu.style.display !== 'none') {
-    hidePatterns();
+      hidePatterns();
   }
 });
 
@@ -247,11 +248,34 @@ function actualizarVariables() {
   draw();
 }
 
-    function checkEnter(event, inputId) {
-      // Si la tecla presionada es Enter (código 13), ejecuta actualizarVariables()
-      if (event.keyCode === 13) {
-        event.preventDefault(); // Evita que se procese la tecla Enter normalmente (por ejemplo, para enviar un formulario)
-        actualizarVariables();
+function checkEnter(event, inputId) {
+  // Si la tecla presionada es Enter (código 13), ejecuta actualizarVariables()
+  if (event.keyCode === 13) {
+      event.preventDefault(); // Evita que se procese la tecla Enter normalmente (por ejemplo, para enviar un formulario)
+      actualizarVariables();
 
-      }
-    }
+  }
+}
+
+////////////////////////////////////////////////////////////// MENU HELP GUIDE //////////////////////////////////////////////////////////////////
+
+function changeText(newText) {
+  document.getElementById("menuText").innerHTML = newText;
+}
+
+function resetText() {
+  document.getElementById("menuText").innerHTML = "Welcome to John Boy Riso Lab! With this app, you can submit your own pictures, transform the RGB channels into risograph colors and download them for printing:<br><br>1. Upload your photo.<br>2. Choose from over 70 colors for the main channels.<br>3. Select a pattern for the risograph texture.<br>4. Play around with and modify the values of the textures.<br>5. Once you're satisfied, click 'Download result' to download your model, conveniently divided into layers.<br><br>Credits: P5.RISO, Dinamo Typefaces.";
+}
+
+function addHoverListeners(itemId, newText) {
+  const item = document.getElementById(itemId);
+  item.addEventListener('mouseover', () => changeText(newText));
+  item.addEventListener('mouseout', resetText);
+}
+
+addHoverListeners('channelsItem', 'An RGB channel is one of the three color channels within the RGB (Red, Green, Blue) color model. An RGB image comprises three distinct channels, with each aligning to one of these primary colors. <br><br>The image is generated by seamlessly merging these channels. Each channel encompasses intensity values for its specific color, and when amalgamated, they yield the complete spectrum of colors. In this particular instance, we are dividing the three color spectrums into layers.');
+addHoverListeners('patternItem', 'A pattern is a repeated and recognizable design or sequence. It can refer to a regular or recurring form, arrangement, or behavior. <br><br>The Risograph printing process involves creating a stencil from a digital file and then using it to transfer ink onto paper. In this case, we convert tints to patterns for printing.');
+addHoverListeners('angleItem', 'In this input, you have the option to specify your preferred angle. By doing so, you can dynamically adjust the rotation of the pattern.');
+addHoverListeners('frecuencyItem', 'Here, you can input the frequency of the pattern, which determines the saturation and definition of the pattern itself.<br><br> A higher number indicates a bigger and less defined pattern, while a smaller number results in a smaller size of the pattern, enhancing readability and definition. The minimum value for this input is 1. Working with small values will affect the performance.');
+addHoverListeners('intensityItem', 'In this input, you can adjust the intensity of the pattern, influencing the color saturation. A high number can signify a loss of the pattern.');
+addHoverListeners('fileButton', 'You can upload your images in JPG and PNG formats. I am not using a cloud, so everything is managed locally :).<br><br> I recommend not uploading heavy images (< 1mb) for optimal performance. If you plan to print the images right after using this tool, I suggest uploading them while maintaining the printing proportions (A4/A3).');

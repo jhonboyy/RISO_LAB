@@ -1,9 +1,4 @@
-
 let blue, red, green, img;
-
-function preload() {
-  img = loadImage('./Images/TEST.jpg');
-}
 
 let selectedRedColor = "red";
 let selectedBlueColor = "blue";
@@ -11,83 +6,106 @@ let selectedGreenColor = "green";
 
 function setup() {
   pixelDensity(1);
-  createCanvas(img.width, img.height);
-
-  blue = new Riso(selectedBlueColor);
-  red = new Riso(selectedRedColor);
-  green = new Riso(selectedGreenColor);
-  
   noLoop();
 }
 
-let redFrecuency = 5
-let redAngle = 45
-let redIntensity = 127
-let blueFrecuency = 5
-let blueAngle = 45
-let blueIntensity = 127
-let greenFrecuency = 5
-let greenAngle = 45
-let greenIntensity = 127
+let redFrecuency = 5;
+let redAngle = 45;
+let redIntensity = 127;
+let blueFrecuency = 5;
+let blueAngle = 45;
+let blueIntensity = 127;
+let greenFrecuency = 5;
+let greenAngle = 45;
+let greenIntensity = 127;
 
 function draw() {
-  clear();
-  background(255, 0);
+  if (img) {
+    // Se ejecuta cuando la imagen está cargada
 
-  clearRiso();
+    if (!blue || !red || !green) {
+      // Inicializa los objetos Riso cuando aún no se hayan inicializado
+      blue = new Riso(selectedBlueColor);
+      red = new Riso(selectedRedColor);
+      green = new Riso(selectedGreenColor);
+    }
 
-  let blues = extractRGBChannel(img, "blue");
-  let reds = extractRGBChannel(img, "red");
-  let greens = extractRGBChannel(img, "green");
+    clear();
+    background(255, 0);
 
-  let redHalftoned = halftoneImage(blues, (selectedRedPattern), redFrecuency, redAngle, redIntensity);
-  let blueHalftoned = halftoneImage(reds, (selectedBluePattern), blueFrecuency, blueAngle, blueIntensity);
-  let greenHalftoned = halftoneImage(greens, (selectedGreenPattern), greenFrecuency, greenAngle, greenIntensity);
+    clearRiso();
 
-  blue.imageMode(CENTER);
-  red.imageMode(CENTER);
-  green.imageMode(CENTER);
+    let blues = extractRGBChannel(img, "blue");
+    let reds = extractRGBChannel(img, "red");
+    let greens = extractRGBChannel(img, "green");
 
-  blue.image(blueHalftoned, width / 2, height / 2);
-  red.image(redHalftoned, width / 2, height / 2);
-  green.image(greenHalftoned, width / 2, height / 2);
+    let redHalftoned = halftoneImage(blues, selectedRedPattern, redFrecuency, redAngle, redIntensity);
+    let blueHalftoned = halftoneImage(reds, selectedBluePattern, blueFrecuency, blueAngle, blueIntensity);
+    let greenHalftoned = halftoneImage(greens, selectedGreenPattern, greenFrecuency, greenAngle, greenIntensity);
 
-  drawRiso();
+    blue.imageMode(CENTER);
+    red.imageMode(CENTER);
+    green.imageMode(CENTER);
 
+    blue.image(blueHalftoned, width / 2, height / 2);
+    red.image(redHalftoned, width / 2, height / 2);
+    green.image(greenHalftoned, width / 2, height / 2);
+
+    drawRiso();
+  }
 }
 
 function exportColor(color) {
   return new Promise((resolve, reject) => {
-      color.export();
+    color.export();
 
-      setTimeout(() => {
-          console.log(`${color.name} exportado`);
-          resolve();
-      }, 100); 
+    setTimeout(() => {
+      console.log(`${color.name} exportado`);
+      resolve();
+    }, 100);
   });
 }
 
 function exportColorsSequentially() {
   exportColor(blue)
-      .then(() => exportColor(red))
-      .then(() => exportColor(green))
-      .then(() => {
-          console.log("Complete");
-      })
-      .catch((error) => {
-          console.error("Error:", error);
-      });
+    .then(() => exportColor(red))
+    .then(() => exportColor(green))
+    .then(() => {
+      console.log("Complete");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
-window.onload = function() {
+function loadImageFromInput(input) {
+  const file = input.files[0];
+  const reader = new FileReader();
+  const chooseFileButton = document.getElementById("fileButton");
+
+  reader.onload = function (e) {
+    img = loadImage(e.target.result, () => {
+      createCanvas(img.width, img.height);
+      draw();
+      input.style.display = "none";
+      chooseFileButton.style.display = "none";
+    });
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+window.onload = function () {
   const buttonResult = document.getElementById("downloadButton");
+  const fileInput = document.getElementById("fileInput");
 
-
-  buttonResult.addEventListener('click', function() {
-      exportColorsSequentially();
+  fileInput.addEventListener("change", function () {
+    loadImageFromInput(this);
   });
-}
 
-Object.values(colourButtons).forEach((button) => {
-  button.addEventListener("click", () => createColorDivsForButton(button.id.replace("button", "").toLowerCase()));
-});
+  buttonResult.addEventListener("click", function () {
+    exportColorsSequentially();
+  });
+};
