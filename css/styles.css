@@ -161,7 +161,7 @@
   @font-face {
     font-family: "Favorit";
     font-style: light;
-    src: url("./fonts/ABCFavoritMono-Light.woff") format("woff");
+    src: url("../fonts/ABCFavoritMono-Light.woff") format("woff");
   }
 
   body h1 {
