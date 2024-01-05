@@ -11,7 +11,7 @@ This software is provided free of charge, extending permission to individuals an
 - **UI Development:** The user interface is still in the process of being defined, mobile version is missing.
 - **Optimal Values:** Exercise caution in using values that may be excessively large.
 
-## Version Notes (3/1/23)
+## Version Notes (2/1/23)
 
 - **Image Upload:** The functionality for image uploads is currently non-operational.
 - **UI Development:** The user interface is still in the process of being defined, mobile version is missing.
