@@ -328,7 +328,7 @@ function halftoneImage(img, shape, frequency, angle, intensity) {
   rotatedCanvas.imageMode(p.CENTER);
   rotatedCanvas.push();
   rotatedCanvas.translate(img.width, img.height);
-  rotatedCanvas.rotate(-angle);
+  rotatedCanvas.rotate(-angle * Math.PI / 180); // Convertir grados a radianes
   rotatedCanvas.image(img, 0, 0);
   rotatedCanvas.pop();
   rotatedCanvas.loadPixels();
@@ -355,7 +355,7 @@ function halftoneImage(img, shape, frequency, angle, intensity) {
   rotatedCanvas.background(255);
   rotatedCanvas.push();
   rotatedCanvas.translate(w, h);
-  rotatedCanvas.rotate(angle);
+  rotatedCanvas.rotate(angle * Math.PI / 180); // Convertir grados a radianes
   rotatedCanvas.image(out, 0, 0);
   rotatedCanvas.pop();
 
@@ -366,6 +366,7 @@ function halftoneImage(img, shape, frequency, angle, intensity) {
     return ditherImage(result, "none", intensity);
   }
 }
+
 
 
 function ditherImage(img, type, threshold) {
