@@ -14,7 +14,7 @@ h1 {
 	align-items: center;
 	margin: 0;
 	font-weight: normal;
-  grid-column: 1 / 3;
+    grid-column: 1 / 3;
 	font-size: 0.9em;
 	border-bottom: 1px solid black;
 }
@@ -23,10 +23,10 @@ a {
 	text-align: center;
 	justify-items: center;
 	margin: 0;
-	padding: 2px;
 	height: max-content;
 	width: max-content;
-  font-size: 0.9em;
+    font-size: 0.9em;
+	padding: 3px;
 }
 
 span {
@@ -40,7 +40,9 @@ input {
 	box-shadow: 0;
 	border: 0;
 	font-size: 0.9em;
-  background-color: transparent;
+	padding: 0;
+	width: 60px;
+    background-color: transparent;
 }
 
 input:focus {
@@ -143,16 +145,26 @@ main {
 
   body {
     overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
+	width: 100vw;
+	height: auto;
   }
 
   .canvas {
     border-right: 0;
   }
+
+  .p5Canvas {
+	visibility: visible !important;
+	height: auto !important;
+	width: 75% !important;
+}
   
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr 1fr 50px;
+    grid-template-rows: 50px 0.8fr 1fr 50px;
+	height: auto;
+	width: 100vw;
   }
 
   .download-section {
@@ -165,12 +177,14 @@ main {
 
   .menu-wrapper {
     grid-template-rows: 1fr;
+	width: 100vw;
   }
   
   .menu {
     border-top: 1px solid black;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(10, 50px);
+	width: 100vw;
   }
 
   .menu>.item:nth-child(1),
@@ -195,6 +209,7 @@ main {
 
   .download-section {
     border-top: 0;
+	width: 100vw;
   }
 
 }
