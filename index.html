@@ -9,7 +9,7 @@
     <meta name="robots" content="index,follow" />
     <meta name="description" content="Jhon Boy Riso Lab is an experimental app that improves the process of risograph printing" />
     <link rel="canonical" href="https://jhonboyy.github.io/riso_lab/" />
-    <meta property="og:url" content="https://jhonboyy.github.io/riso_lab/"/>
+    <meta property="og:url" content="https://jhonboyy.github.io/riso_lab/" />
     <meta property="og:title" content="Jhon Boy" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Jhon Boy Riso Lab" />
@@ -20,51 +20,87 @@
     <link rel="stylesheet" media="all" href="./css/styles.css" />
   </head>
   <body>
-    <h1>Jhon Boy Riso Lab</h1>
-    <main class="split left" id="myapp">
-      <input style="display: none;" type="file" accept="image/*" id="fileInput" onchange="handleFileSelect()">
-      <label style="z-index: 3;" for="fileInput" class="custom-file-upload" id="fileButton" >Choose your picture</label>
-    </main>
-    <section class="split right">
+    <main>
+      <h1>Jhon Boy Riso Lab</h1>
+      <section class="canvas" id="myapp">
+        <label for="fileInput" class="custom-file-upload" id="fileButton">Choose your picture</label>
+        <input style="display: none;" type="file" accept="image/*" id="fileInput" onchange="handleFileSelect()">
+      </section>
+      <section class="menu-wrapper">
         <div class="menu">
-          <div class="item"><p style="cursor: help;" id="channel">Channels</p></div>
-          <div class="item"><p style="background-color: red; cursor: pointer;" id="buttonred">Red</p></div>
-          <div class="item"><p style="background-color: green; cursor: pointer;" id="buttongreen">Green</p></div>
-          <div class="item"><p style="background-color: blue; cursor: pointer;" id="buttonblue">Blue</p></div>
-          <div class="item"><p id="patternItem" style="cursor: help;">Pattern</p></div>
-          <div class="item"><p style="cursor: pointer;" id="patternRed">Circle</p></div>
-          <div class="item"><p style="cursor: pointer;" id="patternGreen" >Circle</p></div>
-          <div class="item"><p style="cursor: pointer;" id="patternBlue">Circle</p></div>
-          <div class="item grid"><p id="frecuencyItem" style="cursor: help;">Frecuency</p></div>
-          <div class="item grid"><input type="text" id="frecuencyRed" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyRed')"></div>
-          <div class="item grid"><input type="text" id="frecuencyGreen" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyBlue')"></div>
-          <div class="item grid"><input type="text" id="frecuencyBlue" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyGreen')"></div>
-          <div class="item grid" ><p id="angleItem" style="cursor: help;" >Angle</p></div>
-          <div class="item grid"><input type="text" id="angleRed" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleRed')"></div>
-          <div class="item grid"><input type="text" id="angleGreen" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleBlue')"></div>
-          <div class="item grid"><input type="text" id="angleBlue" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleGreen')"></div>          
-          <div class="item"><p  id="intensityItem" style="cursor: help;">Intensity</p></div>
-          <div class="item"><input type="text" id="intensityRed" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyRed')"></div>
-          <div class="item"><input type="text" id="intensityGreen" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyBlue')"></div>
-          <div class="item"><input type="text" id="intensityBlue" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyGreen')"></div>          
+          <div class="item">
+            <span style="cursor: help;" id="channel">Channels</span>
+          </div>
+          <div class="item">
+            <a style="background-color: red; cursor: pointer;" id="buttonred">Red</a>
+          </div>
+          <div class="item">
+            <a style="background-color: green; cursor: pointer;" id="buttongreen">Green</a>
+          </div>
+          <div class="item">
+            <a style="background-color: blue; cursor: pointer;" id="buttonblue">Blue</a>
+          </div>
+          <div class="item">
+            <span id="patternItem" style="cursor: help;">Pattern</span>
+          </div>
+          <div class="item">
+            <a style="cursor: pointer;" id="patternRed">Circle</a>
+          </div>
+          <div class="item">
+            <a style="cursor: pointer;" id="patternGreen">Circle</a>
+          </div>
+          <div class="item">
+            <a style="cursor: pointer;" id="patternBlue">Circle</a>
+          </div>
+          <div class="item grid">
+            <span id="frecuencyItem" style="cursor: help;">Frecuency</span>
+          </div>
+          <div class="item grid">
+            <input type="text" id="frecuencyRed" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyRed')">
+          </div>
+          <div class="item grid">
+            <input type="text" id="frecuencyGreen" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyBlue')">
+          </div>
+          <div class="item grid">
+            <input type="text" id="frecuencyBlue" value="5" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyGreen')">
+          </div>
+          <div class="item grid">
+            <span id="angleItem" style="cursor: help;">Angle</span>
+          </div>
+          <div class="item grid">
+            <input type="text" id="angleRed" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleRed')">
+          </div>
+          <div class="item grid">
+            <input type="text" id="angleGreen" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleBlue')">
+          </div>
+          <div class="item grid">
+            <input type="text" id="angleBlue" value="45" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'angleGreen')">
+          </div>
+          <div class="item">
+            <span id="intensityItem" style="cursor: help;">Intensity</span>
+          </div>
+          <div class="item">
+            <input type="text" id="intensityRed" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyRed')">
+          </div>
+          <div class="item">
+            <input type="text" id="intensityGreen" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyBlue')">
+          </div>
+          <div class="item">
+            <input type="text" id="intensityBlue" value="127" onblur="actualizarVariables()" onkeydown="checkEnter(event, 'frecuencyGreen')">
+          </div>
         </div>
-        <p id="menuText"  style="padding-left: 2%; width: 95%;">Welcome to John Boy Riso Lab! With this app, you can submit your own pictures, transform the RGB channels into risograph colors and download them for printing:<br><br>
-
-          1. Upload your photo.<br>
-          2. Choose from over 70 colors for the main channels.<br>
-          3. Select a pattern for the risograph texture.<br>
-          4. Play around with and modify the values of the textures.<br>
-          5. Once you're satisfied, click "Download result" to download your model, conveniently divided into layers.<br><br>
-        
-          Credits: P5.RISO, Dinamo Typefaces.
+        <p id="menuText" style="padding-left: 2%; width: 95%;">Welcome to John Boy Riso Lab! With this app, you can submit your own pictures, transform the RGB channels into risograph colors and download them for printing: <br>
+          <br> 1. Upload your photo. <br> 2. Choose from over 70 colors for the main channels. <br> 3. Select a pattern for the risograph texture. <br> 4. Play around with and modify the values of the textures. <br> 5. Once you're satisfied, click "Download result" to download your model, conveniently divided into layers. <br>
+          <br> Credits: P5.RISO, Dinamo Typefaces.
         </p>
-    </section>
-    <section class="download-section">
-      <p id="downloadButton" class="download-button">Download result</p>
-    </section>
+      </section>
+      <section class="download-section">
+        <p id="downloadButton" class="download-button">Download result</p>
+      </section>
+    </main>
     <script src="./scripts/p5.min.js"></script>
-    <script src="./scripts/RisoLib.js"></script>  
-    <script src="./scripts/scripts.js"></script>  
+    <script src="./scripts/RisoLib.js"></script>
+    <script src="./scripts/scripts.js"></script>
     <script src="./scripts/Final.js"></script>
   </body>
 </html>
