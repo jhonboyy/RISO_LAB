@@ -5,6 +5,7 @@ let selectedBlueColor = "blue";
 let selectedGreenColor = "green";
 
 function setup() {
+  noCanvas();
   pixelDensity(1);
   noLoop();
 }
@@ -85,10 +86,18 @@ function loadImageFromInput(input) {
 
   reader.onload = function (e) {
     img = loadImage(e.target.result, () => {
-      createCanvas(img.width, img.height);
-      draw();
-      input.style.display = "none";
-      chooseFileButton.style.display = "none";
+      // Verifica que el contenedor exista
+      const canvasContainer = document.getElementById('myapp');
+      if (canvasContainer) {
+        // Crea el canvas y establece el contenedor como su padre
+        let c = createCanvas(img.width, img.height);
+        c.parent('myapp');
+        draw();
+        input.style.display = "none";
+        chooseFileButton.style.display = "none";
+      } else {
+        console.error('El contenedor con ID "myapp" no existe.');
+      }
     });
   };
 

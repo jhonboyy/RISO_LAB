@@ -6,7 +6,7 @@ const colourButtons = {
   green: document.getElementById("buttongreen"),
 };
 
-const menu = document.querySelector(".right");
+const menu = document.querySelector(".menu");
 const channelText = document.getElementById("channel");
 
 function rgbArrayToString(rgbArray) {
@@ -33,8 +33,8 @@ function createColorDivsForButton(button) {
       colours.classList.add("coloursdiv");
       colours.style.cssText = `
     position: absolute;
-    top: 0;
-    left: 121px;
+    top: 51px;
+    right: 0;
     width: calc(50vw - 120px);
     height: 100px;
     z-index: 2;
@@ -141,7 +141,7 @@ function createPatternDiv(color) {
       patterns.style.cssText = `
     position: absolute;
     right: -1px;
-    top: 101px;
+    top: 100px;
     height: 100px;
     width: calc(50vw - 120px);
     z-index: 2;
