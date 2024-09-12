@@ -65,7 +65,8 @@ body {
 	width: 100vw;
 	margin: 0;
 	display: grid;
-	overflow: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 main {
