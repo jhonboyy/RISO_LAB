@@ -1,14 +1,9 @@
 let blue, red, green, img;
 
+// Variables para los colores y configuraciones controladas externamente
 let selectedRedColor = "red";
 let selectedBlueColor = "blue";
 let selectedGreenColor = "green";
-
-function setup() {
-  noCanvas();
-  pixelDensity(1);
-  noLoop();
-}
 
 let redFrecuency = 5;
 let redAngle = 45;
@@ -20,10 +15,14 @@ let greenFrecuency = 5;
 let greenAngle = 45;
 let greenIntensity = 127;
 
+function setup() {
+  noCanvas();
+  pixelDensity(1);
+  noLoop();
+}
+
 function draw() {
   if (img) {
-    // Se ejecuta cuando la imagen está cargada
-
     if (!blue || !red || !green) {
       // Inicializa los objetos Riso cuando aún no se hayan inicializado
       blue = new Riso(selectedBlueColor);
@@ -86,10 +85,8 @@ function loadImageFromInput(input) {
 
   reader.onload = function (e) {
     img = loadImage(e.target.result, () => {
-      // Verifica que el contenedor exista
       const canvasContainer = document.getElementById('myapp');
       if (canvasContainer) {
-        // Crea el canvas y establece el contenedor como su padre
         let c = createCanvas(img.width, img.height);
         c.parent('myapp');
         draw();
