@@ -86,9 +86,8 @@ main {
 }
 
 .p5Canvas {
-	visibility: visible !important;
-	height: auto !important;
 	width: 95% !important;
+	height: auto !important;
 }
 
 .menu-wrapper {
@@ -184,6 +183,7 @@ main {
 .custom-file-upload {
 	display: inline-block;
 	cursor: pointer;
+	position: absolute;
 }
 
 @media (max-width: 1250px) {
@@ -201,12 +201,6 @@ main {
 
 	.canvas {
 		border-right: 0;
-	}
-
-	.p5Canvas {
-		visibility: visible !important;
-		height: 70vh !important;
-		width: auto !important;
 	}
 
 	main {
