@@ -1,0 +1,22 @@
+{
+  "name": "riso-lab",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@p5-wrapper/next": "^1.0.3",
+    "@p5-wrapper/react": "^4.4.2",
+    "next": "14.2.10",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.10"
+  }
+}
