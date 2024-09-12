@@ -14,7 +14,7 @@ h1 {
 	align-items: center;
 	margin: 0;
 	font-weight: normal;
-    grid-column: 1 / 3;
+	grid-column: 1 / 3;
 	font-size: 0.9em;
 	border-bottom: 1px solid black;
 }
@@ -25,12 +25,12 @@ a {
 	margin: 0;
 	height: max-content;
 	width: max-content;
-    font-size: 0.9em;
+	font-size: 0.9em;
 	padding: 3px;
 }
 
 span {
-  font-size: 0.9em;
+	font-size: 0.9em;
 }
 
 input {
@@ -42,7 +42,7 @@ input {
 	font-size: 0.9em;
 	padding: 0;
 	width: 60px;
-    background-color: transparent;
+	background-color: transparent;
 }
 
 input:focus {
@@ -115,13 +115,44 @@ main {
 	border-bottom: 1px solid black;
 }
 
+.grid {
+	border-bottom: 0;
+}
+
+.coloursdiv {
+	position: absolute;
+	top: 51px;
+	right: 0;
+	width: calc(50vw - 120px);
+	height: 100px;
+	z-index: 2;
+	display: grid;
+	grid-template-columns: repeat(20, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 1px;
+	background-color: black;
+}
+
+.patternsdiv {
+	position: absolute;
+	right: -1px;
+	top: 100px;
+	height: 100px;
+	width: calc(50vw - 120px);
+	z-index: 2;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	background-color: white;
+	place-items: center;
+}
+
 .download-section {
 	display: flex;
 	height: 50px;
 	align-items: center;
 	justify-content: center;
 	border-top: 1px solid black;
-  grid-column: 1 / 3;
+	grid-column: 1 / 3;
 }
 
 .download-button {
@@ -131,85 +162,87 @@ main {
 	cursor: pointer;
 }
 
-.grid {
-	border-bottom: 0;
-}
-
 .custom-file-upload {
 	display: inline-block;
-	padding: 1%;
 	cursor: pointer;
 }
 
 @media (max-width: 1250px) {
 
-  body {
-    overflow-y: scroll;
-    overflow-x: hidden;
-	width: 100vw;
-	height: auto;
-  }
+	p, h1, a, span, input {
+		font-size: 1em;
+	}
+	
+	body {
+		width: 100vw;
+		height: 100vh;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
 
-  .canvas {
-    border-right: 0;
-  }
+	.canvas {
+		border-right: 0;
+	}
 
-  .p5Canvas {
-	visibility: visible !important;
-	height: auto !important;
-	width: 75% !important;
-}
-  
-  main {
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 0.8fr 1fr 50px;
-	height: auto;
-	width: 100vw;
-  }
+	.p5Canvas {
+		visibility: visible !important;
+		height: 70vh !important;
+		width: auto !important;
+	}
 
-  .download-section {
-    grid-column: 1 / 2;
-  }
+	main {
+		grid-template-columns: 1fr;
+		grid-template-rows: 50px 70vh 1fr 50px;
+	}
 
-  h1 {
-    grid-column: 1 / 2;
-  }
+	h1,
+	.download-section {
+		grid-column: 1 / 2;
+	}
 
-  .menu-wrapper {
-    grid-template-rows: 1fr;
-	width: 100vw;
-  }
-  
-  .menu {
-    border-top: 1px solid black;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, 50px);
-	width: 100vw;
-  }
+	.menu-wrapper {
+		grid-template-rows: 1fr;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
 
-  .menu>.item:nth-child(1),
-  .menu>.item:nth-child(5),
-  .menu>.item:nth-child(9),
-  .menu>.item:nth-child(13),
-  .menu>.item:nth-child(17) {
-    grid-column: 1 / 4;
-    border-right: 0;
-  }
+	.menu {
+		border-top: 1px solid black;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(10, 50px);
+	}
 
-  .menu>.item:nth-child(1),
-  .menu>.item:nth-child(5),
-  .menu>.item:nth-child(17) {
-    border-bottom: 0;
-    align-items: left;
-  }
+	.menu>.item:nth-child(1),
+	.menu>.item:nth-child(5),
+	.menu>.item:nth-child(9),
+	.menu>.item:nth-child(13),
+	.menu>.item:nth-child(17) {
+		grid-column: 1 / 4;
+		border-right: 0;
+		border-bottom: 0;
+	}
 
-  #menuText {
-    display: none;
-  }
+	.coloursdiv {
+		width: 100vw;
+		top: calc(70vh + 50px);
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+	}
 
-  .download-section {
-    border-top: 0;
-	width: 100vw;
-  }
+	.patternsdiv {
+		right: 0;
+		top: calc(70vh + 150px );
+		width: 100vw;
+		grid-template-columns: repeat(5, 1fr);
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+	}
 
+	#menuText {
+		display: none;
+	}
+
+	.download-section {
+		border-top: 0;
+	}
 }
