@@ -98,16 +98,28 @@ main {
 
 .menu {
 	display: grid;
-	grid-template-columns: 120px 1fr 1fr 1fr;
-	grid-template-rows: 102px 102px 67px 67px 67px;
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px 100px 1fr;
+	border-bottom: 1px solid black;
 }
 
-.menu>.item:nth-child(1),
-.menu>.item:nth-child(9),
-.menu>.item:nth-child(5),
-.menu>.item:nth-child(13),
-.menu>.item:nth-child(17) {
+.ColursContainer,
+.PatternContainer,
+.ValuesContainer {
+	display: grid;
+	grid-template-columns: 0.7fr 1fr 1fr 1fr;
+}
+
+.ColursContainer > :nth-child(1) ,
+.PatternContainer > :nth-child(1),
+.ValuesContainer > :nth-child(1),
+.ValuesContainer > :nth-child(5),
+.ValuesContainer > :nth-child(9) {
 	border-right: 1px solid black;
+}
+
+.ValuesContainer {
+	grid-template-rows: 50px 50px 50px;
 }
 
 .item {
@@ -215,16 +227,28 @@ main {
 	}
 
 	.menu {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 150px 150px 1fr;
+		border-bottom: 1px solid black;
 		border-top: 1px solid black;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(10, 50px);
 	}
 
-	.menu>.item:nth-child(1),
-	.menu>.item:nth-child(5),
-	.menu>.item:nth-child(9),
-	.menu>.item:nth-child(13),
-	.menu>.item:nth-child(17) {
+	.ColursContainer,
+	.PatternContainer,
+	.ValuesContainer {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	.ValuesContainer {
+		grid-template-rows: 50px 50px 50px 50px 50px 50px;
+	}
+
+	.ColursContainer > :nth-child(1),
+	.PatternContainer > :nth-child(1),
+	.ValuesContainer > :nth-child(1),
+	.ValuesContainer > :nth-child(5),
+	.ValuesContainer > :nth-child(9) {
 		grid-column: 1 / 4;
 		border-right: 0;
 		border-bottom: 0;
