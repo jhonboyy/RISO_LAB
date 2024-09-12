@@ -29,25 +29,12 @@ function createColorDivsForButton(button) {
   hideColours();
 
   if (!colours) {
-      colours = document.createElement("div");
-      colours.classList.add("coloursdiv");
-      colours.style.cssText = `
-    position: absolute;
-    top: 51px;
-    right: 0;
-    width: calc(50vw - 120px);
-    height: 100px;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 1px;
-    background-color: black;
-  `;
+    colours = document.createElement("div");
+    colours.classList.add("coloursdiv");
 
-      createColorDivs(colorColour, (selectedColor, colorName) => changeBgButton(button, selectedColor, colorName));
+    createColorDivs(colorColour, (selectedColor, colorName) => changeBgButton(button, selectedColor, colorName));
 
-      menu.appendChild(colours);
+    menu.appendChild(colours);
   }
 }
 
@@ -136,24 +123,12 @@ function createPatternDiv(color) {
   hidePatterns();
 
   if (!patterns) {
-      patterns = document.createElement("div");
-      patterns.classList.add("patternsdiv");
-      patterns.style.cssText = `
-    position: absolute;
-    right: -1px;
-    top: 100px;
-    height: 100px;
-    width: calc(50vw - 120px);
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    background-color: white;
-    place-items: center;
-  `;
+    patterns = document.createElement("div");
+    patterns.classList.add("patternsdiv");
 
-      createPatternButtons(color);
+    createPatternButtons(color);
 
-      menu.appendChild(patterns);
+    menu.appendChild(patterns);
   }
 }
 
