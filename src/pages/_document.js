@@ -20,7 +20,6 @@ export default function Document() {
         <link rel="icon" href="/images/jhon-boy-favicon.svg" />
         <link rel="mask-icon" href="/images/jhon-boy-favicon.svg" color="#FFFFFF" />
         <link rel="apple-touch-icon" href="/images/jhon-boy-favicon.svg" />
-        <link rel="stylesheet" href="/css/styles.css" />
         <title>Jhon Boy Riso Lab</title>
       </Head>
       <body>
