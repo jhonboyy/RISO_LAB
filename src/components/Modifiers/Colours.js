@@ -3,7 +3,7 @@ export default function Colours() {
     return (
       <div className="ColursContainer">
          <div className="item">
-          <span id="patternItem" style={{ cursor: 'help' }}>Colours</span>
+          <span id="channel" style={{ cursor: 'help' }}>Colours</span>
         </div>
         <div className="item">
           <a style={{ backgroundColor: 'red', cursor: 'pointer' }} id="buttonred">Red</a>
