@@ -168,14 +168,31 @@ main {
 }
 
 .download-section {
-	display: flex;
+	display: grid;
 	height: 50px;
 	align-items: center;
 	justify-content: center;
 	border-top: 1px solid black;
 	grid-column: 1 / 3;
+	grid-template-columns: 1fr 1fr;
 }
 
+button {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	color: inherit; 
+	font: inherit;  
+	cursor: pointer; 
+	height: 50px;
+}
+#downloadPDFButton {
+	border-right: 1px solid black;
+	width: calc(50vw + 1px);
+}
+  
 .download-button {
 	height: max-content;
 	width: max-content;
