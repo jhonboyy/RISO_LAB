@@ -88,6 +88,7 @@ main {
 .p5Canvas {
 	width: 95% !important;
 	height: auto !important;
+	visibility: visible !important;
 }
 
 .menu-wrapper {
@@ -136,8 +137,8 @@ main {
 	position: absolute;
 	top: 51px;
 	right: 0;
-	width: calc(50vw - 120px);
-	height: 100px;
+	width: calc(50vw - 143px);
+	height: 98px;
 	z-index: 2;
 	display: grid;
 	grid-template-columns: repeat(20, 1fr);
@@ -149,9 +150,9 @@ main {
 .patternsdiv {
 	position: absolute;
 	right: -1px;
-	top: 100px;
-	height: 100px;
-	width: calc(50vw - 120px);
+	top: 150px;
+	height: 99px;
+	width: calc(50vw - 142px);
 	z-index: 2;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -250,15 +251,17 @@ main {
 
 	.coloursdiv {
 		width: 100vw;
-		top: calc(70vh + 50px);
+		top: calc(70vh + 120px);
+		height: 80px;
 		border-top: 1px solid black;
 		border-bottom: 1px solid black;
 	}
 
 	.patternsdiv {
 		right: 0;
-		top: calc(70vh + 150px );
+		top: calc(70vh + 270px);
 		width: 100vw;
+		height: 79px;
 		grid-template-columns: repeat(5, 1fr);
 		border-top: 1px solid black;
 		border-bottom: 1px solid black;
