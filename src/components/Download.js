@@ -1,7 +1,8 @@
 export default function Download() {
     return (   
         <section className="download-section">
-        <p id="downloadButton" className="download-button">Download result</p>
+        <button id="downloadPDFButton">Download result</button>
+        <button id="downloadJPGButton">Descargar como JPG</button>
       </section>
     );  
   }

@@ -31,6 +31,7 @@ export default function Document() {
           color="#FFFFFF"
         />
         <link rel="apple-touch-icon" href="/images/jhon-boy-favicon.svg" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
         <script src="/p5.min.js"></script>
         <script src="/p5.riso.js"></script>
       </Head>
