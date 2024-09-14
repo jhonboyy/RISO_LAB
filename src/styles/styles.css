@@ -77,18 +77,20 @@ main {
 }
 
 .canvas {
-	height: 100%;
+	height: calc(100vh - 100px);
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-right: 1px solid black;
+	overflow: hidden;
 }
 
 .p5Canvas {
-	width: 95% !important;
-	height: auto !important;
-	visibility: visible !important;
+    width: 95% !important;
+    height: 95% !important;
+    object-fit: contain !important; /* Ajusta la imagen dentro del canvas */
+    visibility: visible !important;
 }
 
 .menu-wrapper {
