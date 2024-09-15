@@ -83,8 +83,8 @@ function downloadAsJPG() {
   }
 }
 
-// Función para exportar un canal de color a PDF con tamaño ajustado
-function exportLayerToPDF(layer, filename) {
+// Función para exportar un canal de color a PDF y agregarlo al ZIP
+function exportLayerToPDFAndAddToZip(layer, filename, zip) {
   return new Promise((resolve, reject) => {
     // Limpia el canvas antes de dibujar la capa específica
     clear();
@@ -116,10 +116,15 @@ function exportLayerToPDF(layer, filename) {
       // Agregar la imagen al PDF
       doc.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight); // Ajustar imagen al PDF
 
-      doc.save(`${filename}.pdf`); // Guarda el archivo PDF con el nombre proporcionado
+      // Generar el PDF en formato base64
+      const pdfData = doc.output('datauristring');
+      const base64Data = pdfData.split(',')[1];
+
+      // Agregar el PDF al archivo ZIP
+      zip.file(`${filename}.pdf`, base64Data, { base64: true });
 
       setTimeout(() => {
-        console.log(`${filename} exportado como PDF con tamaño ajustado`);
+        console.log(`${filename} exportado como PDF y añadido al ZIP`);
         resolve();
       }, 100);
     } else {
@@ -128,21 +133,31 @@ function exportLayerToPDF(layer, filename) {
   });
 }
 
-// Función para exportar las capas (canales) como PDF de forma secuencial
-function exportLayersAsPDF() {
-  // Exporta las capas usando los nombres de las tintas seleccionadas
-  exportLayerToPDF(blue, `${selectedBlueColor}-layer`)
+// Función para exportar todas las capas como PDF y empaquetarlas en un ZIP
+function exportLayersAsZIP() {
+  const zip = new JSZip(); // Crear un nuevo archivo ZIP
+
+  // Exporta las capas y agrégalas al ZIP usando los nombres de las tintas seleccionadas
+  exportLayerToPDFAndAddToZip(blue, `${selectedBlueColor}-layer`, zip)
     .then(() => {
       restoreOriginalCanvasState(); // Restaurar el canvas original
-      return exportLayerToPDF(red, `${selectedRedColor}-layer`);
+      return exportLayerToPDFAndAddToZip(red, `${selectedRedColor}-layer`, zip);
     })
     .then(() => {
       restoreOriginalCanvasState(); // Restaurar el canvas original
-      return exportLayerToPDF(green, `${selectedGreenColor}-layer`);
+      return exportLayerToPDFAndAddToZip(green, `${selectedGreenColor}-layer`, zip);
     })
     .then(() => {
       restoreOriginalCanvasState(); // Restaurar el canvas original
-      console.log("Todas las capas han sido exportadas como PDF");
+      console.log("Todas las capas han sido exportadas y añadidas al ZIP");
+
+      // Generar el archivo ZIP y forzar la descarga
+      zip.generateAsync({ type: "blob" }).then(function (content) {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(content);
+        link.download = "layers.zip"; // Nombre del archivo ZIP
+        link.click();
+      });
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -187,11 +202,11 @@ window.onload = function () {
 
   // Listener para descargar como JPG
   jpgButton.addEventListener("click", function () {
-    downloadAsJPG(); // Asegúrate de que esta función esté definida antes
+    downloadAsJPG();
   });
 
-  // Listener para exportar capas de color como PDF
+  // Listener para exportar las capas como ZIP en lugar de PDFs individuales
   pdfButton.addEventListener("click", function () {
-    exportLayersAsPDF(); // Exportar capas de color a PDF
+    exportLayersAsZIP(); // Exportar capas como PDFs en un archivo ZIP
   });
 };
