@@ -31,17 +31,17 @@ export default function Document() {
           color="#FFFFFF"
         />
         <link rel="apple-touch-icon" href="/images/jhon-boy-favicon.svg" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-        <script src="/p5.min.js"></script>
-        <script src="/p5.riso.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js" defer></script>
+        <script src="/p5.min.js" defer></script>
+        <script src="/p5.riso.js" defer></script>
       </Head>
       <body>
         <Main />
         <NextScript />
       </body>
-      <script src="/scripts.js"></script>
-      <script src="/final.js"></script>
+      <script src="/scripts.js" defer></script>
+      <script src="/final.js" defer></script>
     </Html>
   );
 }
