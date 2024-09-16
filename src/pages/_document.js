@@ -41,7 +41,7 @@ export default function Document() {
         <NextScript />
       </body>
       <script src="/scripts.js" defer></script>
-      <script src="/final.js" defer></script>
+      <script src="/Final.js" defer></script>
     </Html>
   );
 }
